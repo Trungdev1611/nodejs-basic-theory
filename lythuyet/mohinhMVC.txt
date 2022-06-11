@@ -1,0 +1,2 @@
+MVC: Model View Controller
+request-->Controller(la cac function xu ly) --->Model-->database ==>model ==> Controller ==> View ==> renderView reponse
