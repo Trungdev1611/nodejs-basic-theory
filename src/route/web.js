@@ -9,7 +9,7 @@ const initwebRoute = (app) => {
         res.send('Im Trung')
     })
     router.get('/userdetails/:userId', homecontroller.getDetailUser)
-
+    router.post('/userdetails/:userId', homecontroller.createNewUser)
     return app.use('/', router)
 }
 

@@ -34,8 +34,24 @@ let getDetailUser = (req, res) => {
     )
 }
 
+let createNewUser = (req, res) => {
+    console.log('createnewUser', req.body)
+    const { firstName, LastName, Email, Adress } = req.body
+    //insert data from form to sql
+    connection.query(
+        ' INSERT INTO users (firstName, lastName, email,address) VALUES (?,?,?,?)', [firstName, LastName, Email, Adress],
+        function (err, results, fields) {
+            console.log(results); // results contains rows returned by server
+            // return res.render("test/index.ejs", { dataUser11: results })
+        }
+    )
+    return res.redirect('/')  //chuyen huong ve trang home
+
+}
+
 module.exports = {
     getHomePage,
-    getDetailUser
+    getDetailUser,
+    createNewUser
 }
 

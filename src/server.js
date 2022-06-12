@@ -10,6 +10,14 @@ console.log(port)
 //cau hinh View
 configViewEngine(app);
 
+// nhan du lieu tu form su dung bodyparser co san trong nodejs tu phien ban 4.16
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json()) // To parse the incoming requests with JSON payloads
+
+
+
+
+
 //Cau hinh Router
 initwebRoute(app)
 app.listen(port, () => {
