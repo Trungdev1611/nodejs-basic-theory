@@ -39,7 +39,14 @@
                         <%=element.lastName%>
                     </td>
                     <td>
+                        <!-- userDetail -->
                         <a href="userdetails/<%=element.id%>">Details</a>
+                        <!-- delete user -->
+                        <a href="/delete/<%=element.id%>">Delete</a>
+                        <!-- Edit User -->
+                        <a href="/edit/<%=element.id%>">Edit</a>
+
+
                     </td>
                 </tr>
                 <% })%>
@@ -48,7 +55,7 @@
         </tbody>
     </table>
     <div class="testform">
-        <form action="http://localhost:8080/userdetails/1" method="POST">
+        <form action="http://localhost:8080/createUser" method="POST">
             firstName: <input type="text" placeholder="firstName" name="firstName">
             LastName: <input type="text" placeholder="LastName" name="LastName">
             Email: <input type="text" placeholder="Email" name="Email">

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit user</title>
+</head>
+
+<body>
+    <form action="/update-user" method="post">
+        <div><label for="">FirstName</label>
+            <input type="text" value="<%= useredit.firstName%>" name='firstName'>
+        </div>
+        <div><label for="">LastName</label>
+            <input type="text" value="<%= useredit.lastName%>" name='lastName'>
+        </div>
+        <div><label for="">Email</label>
+            <input type="text" value="<%= useredit.email%>" name='email'>
+        </div>
+        <div><label for="">Adress</label>
+            <input type="text" value="<%= useredit.address%>" name='address'>
+        </div>
+        <div>
+            <input type="text" value="<%= useredit.id%>" name='id' hidden>
+        </div>
+        <button type="submit">Accept Edit</button>
+    </form>
+</body>
+
+</html>

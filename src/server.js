@@ -2,10 +2,14 @@
 import express from 'express';
 import configViewEngine from './configs/viewEngine';
 require('dotenv').config()
+
 import initwebRoute from './route/web';
+const cors = require('cors');
+
 const app = express();
 const port = process.env.PORT || 8080
 console.log(port)
+app.use(cors());
 
 //cau hinh View
 configViewEngine(app);

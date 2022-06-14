@@ -1,8 +1,5 @@
 import connection from './../configs/connectDB'
 
-
-
-
 let getHomePage = (req, res) => {
     let resultArray
 
@@ -48,10 +45,54 @@ let createNewUser = (req, res) => {
     return res.redirect('/')  //chuyen huong ve trang home
 
 }
+let deleteUser = (req, res) => {
+    const { deleteId } = req.params
+    //query delete database
+    connection.query(
+        'DELETE FROM users WHERE id=?', [deleteId],
+        function (err, results, fields) {
+            console.log(results);
+
+        }
+    )
+    return res.redirect('/')  //chuyen huong ve trang home
+}
+
+let editUser = (req, res) => {
+    const { editId } = req.params
+    //query delete database
+    connection.query(
+        'SELECT * FROM users WHERE id=?', [editId],
+        function (err, results, fields) {
+            console.log('edit', results);
+
+            return res.render('test/edituser.ejs', { useredit: results[0] })  //chuyen huong ve trang home
+
+        }
+
+    )
+}
+let updateUser = (req, res) => {
+    const { firstName, lastName, email, address, id } = req.body
+    //insert data from form to sql
+    connection.query(
+        'UPDATE users SET firstName = ?, lastName = ?,email = ?, address = ? WHERE id =?', [firstName, lastName, email, address, id],
+        function (err, results, fields) {
+            console.log(results); // results contains rows returned by server
+            // return res.render("test/index.ejs", { dataUser11: results })
+        }
+    )
+    return res.redirect('/')  //chuyen huong ve trang home
+
+}
 
 module.exports = {
     getHomePage,
     getDetailUser,
-    createNewUser
+    createNewUser,
+    deleteUser,
+    editUser,
+    updateUser
+
 }
 
