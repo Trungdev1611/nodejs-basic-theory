@@ -4,6 +4,7 @@ import configViewEngine from './configs/viewEngine';
 require('dotenv').config()
 
 import initwebRoute from './route/web';
+import createApi from './route/api';
 const cors = require('cors');
 
 const app = express();
@@ -24,6 +25,7 @@ app.use(express.json()) // To parse the incoming requests with JSON payloads
 
 //Cau hinh Router
 initwebRoute(app)
+createApi(app)
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 })
